@@ -15,12 +15,11 @@ module.exports = {
           .status(400)
           .json({ error: "User name and email are required" });
       }
+      
+      const id = uuidv4();
+      const token = createToken({ ...user, id });
 
-      const token = createToken({ ...user, id: uuidv4() });
-
-      const response = validateToken(token);
-
-      return res.json({...response, token});
+      return res.json({ ...user, id, token });
     } catch (error) {
       return res.status(400).json({ error: error.message });
     }
