@@ -69,7 +69,7 @@ const socket = io({
 });
 ~~~
 
-### 👇🏻Os eventos disparados para do web socket para o front são:
+### 👇🏻Os eventos disparados do socket para o front são:
 
 ### message
 Evento disparado quando um usuário envia uma mensagem no canal.
