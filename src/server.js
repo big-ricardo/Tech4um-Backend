@@ -45,15 +45,7 @@ ws.on("connection", (socket) => {
   });
 
   socket.on("disconnect", () => {
-    rooms.removeUserFromRoom(roomId, userId);
     rooms.removeUser(userId);
-
-    if (rooms.getRoomUsers(roomId).length === 0) {
-      rooms.removeRoom(roomId);
-    }
-    socket.leave(roomId);
-
-    socket.to(roomId).emit("left", user);
 
     console.log(" > User left", user.name);
   });
