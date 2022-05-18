@@ -139,5 +139,5 @@ Evento deve ser disparado quando um usuário entrar no canal. Deve ser passado o
 Evento deve ser disparado quando um usuário sair do canal. Deve ser passado o id do canal.
 
 ---
-⌨️ com ❤️ por [Armstrong Lohãns](https://gist.github.com/lohhans) 😊
+⌨️ com ❤️ por [L Ricardo](mailto:luis.ricardo@tech4h.com.br) 😊
 ```
