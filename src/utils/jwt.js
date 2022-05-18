@@ -11,18 +11,24 @@ module.exports = {
     return token;
   },
 
-  validateToken(token, res) {
+  validateToken(token, res = null) {
     if (!token) {
-      return res.status(401).json({ error: "Token is required" });
+      if (res) {
+        return res.status(401).json({ error: "Token is required" });
+      }
+     return null;
     }
 
     token = token.replace("Bearer ", "");
     const decoded = jwt.verify(
       token,
-      process.env.JWT_SECRET,
+      SECRET,
       (err, userData) => {
         if (err) {
-          return res.status(401).json({ error: "Token invalid" });
+          if (res){
+            return res.status(401).json({ error: "Token invalid" });
+          }
+          return null;
         }
 
         return userData.user;

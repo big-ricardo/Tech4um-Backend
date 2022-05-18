@@ -3,7 +3,11 @@ const routes = require("./router.js");
 const cors = require("cors");
 const httpServer = express();
 const server = require("http").Server(httpServer);
-const ws = require("socket.io")(server);
+const ws = require("socket.io")(server, {
+  cors: {
+    origin: "*",
+  },
+});
 const createRooms = require("./utils/rooms");
 const { validateToken } = require("./utils/jwt.js");
 require("dotenv").config();
@@ -18,13 +22,16 @@ ws.on("connection", (socket) => {
   }
 
   if (!token) {
+    console.log(" >No token");
     socket.disconnect();
     return;
   }
 
-  const user = validateToken(token, socket.handshake.headers);
+  const user = validateToken(token);
 
   if (!user) {
+    console.log(" >Invalid token");
+    socket.disconnect();
     return;
   }
 
@@ -32,7 +39,7 @@ ws.on("connection", (socket) => {
 
   socket.on("join", (roomId) => {
     rooms.addUserToRoom(roomId, user);
-    ws.to(roomId).emit("joined", {user, roomId});
+    ws.to(roomId).emit("joined", { user, roomId });
     socket.join(roomId);
     console.log(" > User joined", user.name, "in room", roomId);
   });
@@ -40,14 +47,14 @@ ws.on("connection", (socket) => {
   socket.on("leave", (roomId) => {
     socket.leave(roomId);
     rooms.removeUserFromRoom(roomId, user);
-    ws.to(roomId).emit("left", {user, roomId});
+    ws.to(roomId).emit("left", { user, roomId });
     console.log(" > User left", user.name, "in room", roomId);
   });
 
   socket.on("disconnect", () => {
     rooms.removeUser(user.id);
 
-    console.log(" > User left", user.name);
+    console.log(" > User disconnect", user.name);
   });
 });
 
