@@ -34,7 +34,7 @@ module.exports = {
       }
 
       if (toUserId) {
-        req.ws.to(newMessage.to).emit("message", newMessage);
+        req.ws.to(req.rooms.getUser(newMessage.to)).emit("message", newMessage);
 
         return res.json(newMessage);
       }
