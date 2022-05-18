@@ -18,7 +18,9 @@ module.exports = {
 
       const token = createToken({ ...user, id: uuidv4() });
 
-      return res.json({ token });
+      const response = validateToken(token);
+
+      return res.json({...response, token});
     } catch (error) {
       return res.status(400).json({ error: error.message });
     }

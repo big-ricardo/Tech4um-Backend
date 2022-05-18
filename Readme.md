@@ -76,14 +76,17 @@ Evento disparado quando um usuário envia uma mensagem no canal.
 
 ~~~
 {
-    "user": {
-        "name": "Ricardo",
-        "email": "luis.ricardo@tech4h.com.br",
-        "id": "0f6cbcae-bc95-4f06-b02d-0c6598c088dc"
+    "message": {
+        "user": {
+            "name": "Ricardo",
+            "email": "luis.ricardo@tech4h.com.br",
+            "id": "0f6cbcae-bc95-4f06-b02d-0c6598c088dc"
+        },
+        "message": "mensagem no geral",
+        "to": null,
+        "timestamp": "2022-05-18T13:57:58.629Z"
     },
-    "message": "mensagem no geral",
-    "to": null,
-    "timestamp": "2022-05-18T03:23:22.718Z"
+    "roomId": "a4f25db6-6ead-4553-a28b-a7dbf95fb0e8"
 }
 ~~~
 
@@ -91,9 +94,12 @@ Evento disparado quando um usuário envia uma mensagem no canal.
 Evento disparado quando um usuário sai do canal.
 ~~~
 {
-    "name": "Ricardo",
-    "email": "luis.ricardo@tech4h.com.br",
-    "id": "6e48b2a2-ae3a-460d-89b5-b0f3fe68872f"
+    "user": {
+        "name": "Ricardo",
+        "email": "luis.ricardo@tech4h.com.br",
+        "id": "98f29861-48e5-49b0-82fc-6b109d2c2172"
+    },
+    "roomId": "a4f25db6-6ead-4553-a28b-a7dbf95fb0e8"
 }
 ~~~
 
@@ -101,9 +107,12 @@ Evento disparado quando um usuário sai do canal.
 Evento disparado quando um usuário entra no canal.
 ~~~
 {
-    "name": "Ricardo",
-    "email": "luis.ricardo@tech4h.com.br",
-    "id": "6e48b2a2-ae3a-460d-89b5-b0f3fe68872f"
+    "user": {
+        "name": "Ricardo",
+        "email": "luis.ricardo@tech4h.com.br",
+        "id": "98f29861-48e5-49b0-82fc-6b109d2c2172"
+    },
+    "roomId": "a4f25db6-6ead-4553-a28b-a7dbf95fb0e8"
 }
 ~~~
 

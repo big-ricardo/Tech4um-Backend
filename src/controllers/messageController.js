@@ -39,7 +39,7 @@ module.exports = {
         return res.json(newMessage);
       }
 
-      req.ws.to(roomId).emit("message", newMessage);
+      req.ws.to(roomId).emit("message", {message: newMessage, roomId});
 
       return res.json(newMessage);
     } catch (error) {
