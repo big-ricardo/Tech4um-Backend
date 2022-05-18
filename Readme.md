@@ -1,4 +1,4 @@
-# Título do projeto
+# Tech4um
 
 O tech4um será um fórum de texto, onde as conversas serão baseadas em canais que os próprios usuários criarem, somente usuários logados poderão acessar os canais para conversar e criar canais.
 
@@ -28,19 +28,17 @@ Irá precisar instalar as dependências do projeto.
 npm i ou yarn
 ```
 
-```
 Aṕos isso, você pode executar o projeto.
 
 ```
-
 npm rum start ou yarn start
 
 ```
 
 Terá o seguinte resultado:
 
-```
 
+```
 > Server started on port 3333
 
 ```
