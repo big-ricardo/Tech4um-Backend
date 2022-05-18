@@ -32,7 +32,7 @@ ws.on("connection", (socket) => {
 
   socket.on("join", (roomId) => {
     rooms.addUserToRoom(roomId, user);
-    socket.to(roomId).emit("joined", rooms.getRoomUser(roomId, user.id));
+    ws.to(roomId).emit("joined", user);
     socket.join(roomId);
     console.log(" > User joined", user.name, "in room", roomId);
   });
@@ -40,7 +40,7 @@ ws.on("connection", (socket) => {
   socket.on("leave", (roomId) => {
     socket.leave(roomId);
     rooms.removeUserFromRoom(roomId, user);
-    socket.to(roomId).emit("left", rooms.getRoomUser(roomId, user.id));
+    ws.to(roomId).emit("left", user);
     console.log(" > User left", user.name, "in room", roomId);
   });
 
