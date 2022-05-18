@@ -71,7 +71,7 @@ const socket = io({
 
 ### 👇🏻Os eventos disparados para do web socket para o front são:
 
-###message
+### message
 Evento disparado quando um usuário envia uma mensagem no canal.
 
 ~~~
@@ -87,7 +87,7 @@ Evento disparado quando um usuário envia uma mensagem no canal.
 }
 ~~~
 
-###left
+### left
 Evento disparado quando um usuário sai do canal.
 ~~~
 {
@@ -97,7 +97,7 @@ Evento disparado quando um usuário sai do canal.
 }
 ~~~
 
-###joined
+### joined
 Evento disparado quando um usuário entra no canal.
 ~~~
 {
@@ -107,7 +107,7 @@ Evento disparado quando um usuário entra no canal.
 }
 ~~~
 
-###new-room
+### new-room
 Evento disparado quando um usuário cria um novo canal.
 ~~~
 {
@@ -122,7 +122,7 @@ Evento disparado quando um usuário cria um novo canal.
 }
 ~~~
 
-###delete-room
+### delete-room
 Evento disparado quando um usuário deleta um canal.
 ~~~
 {
