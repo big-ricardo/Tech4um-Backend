@@ -61,6 +61,17 @@ module.exports = {
 
     function removeUser(userId) {
       delete state.users[userId];
+      const roomId = Object.keys(state.rooms).find((roomId) =>
+        state.rooms[roomId].users.find((user) => user.id === userId)
+      );
+
+      if (roomId) {
+        state.rooms[roomId].users = state.rooms[roomId].users.filter((user) =>
+          user.id !== userId
+        );
+      }
+
+      return roomId;
     }
 
     function getUser(userId) {
@@ -76,6 +87,10 @@ module.exports = {
       const room = getRoom(roomId);
 
       if (!room) {
+        return;
+      }
+
+      if (room.users.some((u) => u.id === user.id)) {
         return;
       }
 

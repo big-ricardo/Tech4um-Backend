@@ -35,6 +35,8 @@ ws.on("connection", (socket) => {
     return;
   }
 
+  console.log(" > User connected", user.name);
+
   rooms.addUser(user.id, socket.id);
 
   socket.on("join", (roomId) => {
@@ -52,8 +54,8 @@ ws.on("connection", (socket) => {
   });
 
   socket.on("disconnect", () => {
-    rooms.removeUser(user.id);
-
+    const roomId = rooms.removeUser(user.id);
+    ws.to(roomId).emit("left", { user, roomId });
     console.log(" > User disconnect", user.name);
   });
 });

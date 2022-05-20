@@ -20,7 +20,14 @@ module.exports = {
 
       req.rooms.createRoom({ id, name, description, by: user });
 
-      req.ws.emit("new-room", { id, name, description, by: user });
+      req.ws.emit("new-room", {
+        id,
+        name,
+        description,
+        by: user,
+        numUsers: 0,
+        users: [],
+      });
 
       return res.json({ id });
     } catch (error) {
