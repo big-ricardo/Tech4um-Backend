@@ -120,14 +120,16 @@ Evento disparado quando um usuário entra no canal.
 Evento disparado quando um usuário cria um novo canal.
 ~~~
 {
-    "id": "c6458b3a-ee86-408d-a0e4-b8fcde31b671",
-    "name": "real customer",
-    "description": "humanized service",
-    "by": {
-        "name": "Ricardo",
-        "email": "luis.ricardo@tech4h.com.br",
-        "id": "0f6cbcae-bc95-4f06-b02d-0c6598c088dc"
-    }
+    id: '27727752-d35c-4cd0-a3fb-5ce09b2e1b8c',
+    name: 'Squad 2',
+    description: 'Alinhamentos',
+    by: {
+        name: 'Big Ricardo',
+        email: 'luis.ricardo@tech4h.com.br',
+        id: '115b1561-7fe0-4ac1-b130-87a9d0467021'
+    },
+    numUsers: 0,
+    users: []
 }
 ~~~
 
