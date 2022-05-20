@@ -34,12 +34,14 @@ module.exports = {
       }
 
       if (toUserId) {
-        req.ws.to(req.rooms.getUser(newMessage.to).socketId).emit("message", newMessage);
+        req.ws
+          .to(req.rooms.getUser(newMessage.to).socketId)
+          .emit("message", { message: newMessage, roomId });
 
         return res.json(newMessage);
       }
 
-      req.ws.to(roomId).emit("message", {message: newMessage, roomId});
+      req.ws.to(roomId).emit("message", { message: newMessage, roomId });
 
       return res.json(newMessage);
     } catch (error) {
