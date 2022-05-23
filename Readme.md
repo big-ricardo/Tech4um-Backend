@@ -146,9 +146,16 @@ Evento disparado quando um usuário deleta um canal.
 ### join
 Evento deve ser disparado quando um usuário entrar no canal. Deve ser passado o id do canal.
 
+~~~
+    socket.emit("join", roomId);
+~~~
+
 ### leave
 Evento deve ser disparado quando um usuário sair do canal. Deve ser passado o id do canal.
 
+~~~
+    socket.emit("leave", roomId);
+~~~
+
 ---
 ⌨️ com ❤️ por [L Ricardo](mailto:luis.ricardo@tech4h.com.br) 😊
-```
