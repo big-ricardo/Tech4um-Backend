@@ -28,6 +28,12 @@ Irá precisar instalar as dependências do projeto.
 npm i ou yarn
 ```
 
+Cria um arquivo chamado `.env` no diretório raiz do projeto.
+
+```
+    JWT_SECRET=tech4um
+```
+
 Aṕos isso, você pode executar o projeto.
 
 ```
